@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e "#!/usr/bin/python3\n$PYCODE" > a.py && chmod +x a.py && ./a.py && rm a.py
