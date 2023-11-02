@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-import variable_load_5
+from variable_load_5 import a
 
 
 def print_num():
-    print("{:d}".format(variable_load_5.a))
+    print("{:d}".format(a))
 
 
 if __name__ == "__main__":
