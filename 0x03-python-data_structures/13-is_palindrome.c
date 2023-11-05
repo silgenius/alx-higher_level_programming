@@ -9,13 +9,13 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int length, i, j, len;
+	int length, j, len;
 	listint_t *ptr, *last;
 
-	i = 0, j = 0, length = 0;
+	j = 0, length = 0;
 	ptr = *head;
 
-	if (ptr == NULL)
+	if (ptr == NULL || ptr->next == NULL)
 		return (1);
 	while (ptr != NULL)
 	{
@@ -26,7 +26,7 @@ int is_palindrome(listint_t **head)
 	len = length / 2;
 	ptr = *head;
 
-	while (i < len)
+	while (len != 0)
 	{
 		last = *head;
 		while (j < length - 1)
@@ -37,7 +37,7 @@ int is_palindrome(listint_t **head)
 
 		if (!(ptr->n == last->n))
 			return (0);
-		i++;
+		len--;
 		ptr = ptr->next;
 		length--;
 		j = 0;
