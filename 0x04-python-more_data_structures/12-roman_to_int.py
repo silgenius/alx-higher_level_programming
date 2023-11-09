@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
     cal = 0
     x = 0
     if roman_string is None:
-        return (None)
+        return (0)
     for alpha in roman_string:
         if alpha in my_dict:
             if x == 1:
@@ -18,6 +18,6 @@ def roman_to_int(roman_string):
             prev = alpha
             x = 1
         else:
-            return (None)
+            return (0)
     result += my_dict[alpha]
     return (result)
