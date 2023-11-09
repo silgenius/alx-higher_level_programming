@@ -5,7 +5,7 @@ def roman_to_int(roman_string):
     result = 0
     cal = 0
     x = 0
-    if not roman_string:
+    if roman_string is None:
         return (None)
     for alpha in roman_string:
         if alpha in my_dict:
