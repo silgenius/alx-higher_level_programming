@@ -1,5 +1,7 @@
 #include <Python.h>
 
+void print_python_bytes(PyObject *p);
+
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t i, len;
@@ -12,13 +14,15 @@ void print_python_list(PyObject *p)
 	printf("[*] Size of the Python List = %ld\n", len);
 	printf("[*] Allocated = %ld\n", object_allocation->allocated);
 
-	for (i = 0; i < len - 1; i++)
+	for (i = 0; i < len; i++)
 	{
 		item = PySequence_GetItem(p, i);
 		if (item != NULL)
 		{
 			item_type_name = item->ob_type->tp_name;
 			printf("Element %ld: %s\n", i, item_type_name);
+			if (strcmp(item_type_name, "bytes") == 0)
+				print_python_bytes(item);
 		}
 	}
 }
@@ -51,7 +55,7 @@ void print_python_bytes(PyObject *p)
 
 	printf("  trying string: %s\n", str ? str : "(no data)");
 
-	printf("  first %ld bytes: ", len);
+	printf("  first %ld bytes: ", len >= 10 ? len : len + 1);
 	for (i = 0; i <= len && i < 10; i++)
 	{
 		printf("%02hhx", (unsigned char)str[i]);
