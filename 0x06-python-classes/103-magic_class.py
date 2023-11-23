@@ -8,7 +8,8 @@ for a circle in mathematics. The class provides methods to calculate
 the area and circumference of a circle based on its radius.
 
 Classes:
-- MagicClass: Represents a circle with methods for area and circumference calculations.
+- MagicClass: Represents a circle with methods for area and
+circumference calculations.
 
 Usage:
     To use this module, create an instance of MagicClass with
@@ -33,15 +34,17 @@ class MagicClass:
         Initializes a MagicClass object with a given radius.
 
         Parameters:
-        - radius: A number (int or float) representing the radius of the circle.
+        - radius: A number (int or float) representing
+        the radius of the circle.
 
         Raises:
-        - TypeError: If the provided radius is not a number (neither int nor float).
+        - TypeError: If the provided radius is not
+        a number (neither int nor float).
         """
         self.__radius = 0
 
-        if type(radius) is not int and type(radius) is not float:
-            raise TypeError('radius must be a number')
+        if type(radius) is not int or type(radius) is not float:
+            raise TypeError("radius must be a number")
 
         self.__radius = radius
 
@@ -54,7 +57,7 @@ class MagicClass:
         Returns:
         - float: The calculated area of the circle.
         """
-        return self.__radius ** 2 * math.pi
+        return (self.__radius ** 2 * math.pi)
 
     def circumference(self):
         """
@@ -65,4 +68,4 @@ class MagicClass:
         Returns:
         - float: The calculated circumference of the circle.
         """
-        return 2 * math.pi * self.__radius
+        return (2 * math.pi * self.__radius)
