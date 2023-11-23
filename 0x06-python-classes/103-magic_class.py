@@ -3,32 +3,31 @@
 """
 MagicClass Module
 
-This module defines the MagicClass class, representing a simple abstraction for a circle in mathematics. The class provides methods to calculate the area and circumference of a circle based on its radius.
+This module defines the MagicClass class, representing a simple abstraction
+for a circle in mathematics. The class provides methods to calculate
+the area and circumference of a circle based on its radius.
 
 Classes:
 - MagicClass: Represents a circle with methods for area and circumference calculations.
 
 Usage:
-    To use this module, create an instance of MagicClass with a radius and then call the area() and circumference() methods.
+    To use this module, create an instance of MagicClass with
+    a radius and then call the area() and circumference() methods.
 
-Example:
-    # Create a MagicClass instance with a radius of 5.0
-    my_circle = MagicClass(5.0)
-
-    # Calculate and print the area of the circle
-    print("Area:", my_circle.area())
-
-    # Calculate and print the circumference of the circle
-    print("Circumference:", my_circle.circumference())
-
-Note:
-    The radius provided during initialization must be a number (int or float). If an invalid type is provided, a TypeError is raised.
 """
 
 import math
 
 
 class MagicClass:
+    """
+    A simple class representing a simple abstraction for a
+    circle in mathematics.
+
+    Attributes:
+        - radius: The radius of the circle.
+    """
+
     def __init__(self, radius):
         """
         Initializes a MagicClass object with a given radius.
