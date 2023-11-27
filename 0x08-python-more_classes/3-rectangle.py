@@ -117,7 +117,7 @@ class Rectangle:
         """
 
         if self.__height == 0 or self.__width == 0:
-            return ""
+            return None
 
         rectangle_str = ""
         for _ in range(self.__height):
