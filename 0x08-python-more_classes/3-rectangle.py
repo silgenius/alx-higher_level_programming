@@ -54,10 +54,7 @@ class Rectangle:
         Parameters:
             value (int): The new width value.
         """
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
+
         self.__width = value
 
     @property
@@ -79,10 +76,6 @@ class Rectangle:
         Parameters:
             value (int): The new height value.
         """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
