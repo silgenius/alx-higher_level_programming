@@ -1,0 +1,34 @@
+# Test cases for add_integer function
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test Case 1
+>>> add_integer(3, 5)
+8
+
+# Test Case 2
+>>> add_integer(2.5, 7.5)
+9
+
+# Test Case 3
+>>> add_integer(10, 0)
+10
+
+# Test Case 4
+>>> add_integer(15.8, 4.2)
+19
+
+# Test Case 5
+# Ensure TypeError is raised for non-integer input (a)
+>>> add_integer("not_an_integer", 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Test Case 6
+# Ensure TypeError is raised for non-integer input (b)
+>>> add_integer(10, "not_an_integer")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
