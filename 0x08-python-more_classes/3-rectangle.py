@@ -117,9 +117,9 @@ class Rectangle:
         """
 
         if self.__height == 0 or self.__width == 0:
-            return None
+            return ""
 
-        rectangle_str = ""
+        rectangle_string = ""
         for _ in range(self.__height):
-            rectangle_str += "#" * self.__width + "\n"
-        return rectangle_str
+            rectangle_string += "#" * self.__width + "\n"
+        return rectangle_string[:-1]
