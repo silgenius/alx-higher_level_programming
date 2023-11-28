@@ -125,7 +125,7 @@ class Rectangle:
         return rectangle_string[:-1]
 
     def __repr__(self):
-         """
+        """
         Returns a string representation of the Rectangle instance.
 
         The representation includes the values of
