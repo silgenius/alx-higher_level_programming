@@ -1,0 +1,23 @@
+# Test cases for say_my_name function
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test Case 1
+>>> say_my_name("martin", "silas")
+My name is martin silas
+
+# Test Case 2
+>>> say_my_name(2, "olutade")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test Case 3
+>>> say_my_name("martin", (2, 8))
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# Test Case 4
+>>> say_my_name("martin")
+My name is martin 

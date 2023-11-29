@@ -1,0 +1,52 @@
+Description: Test cases for text_indentation function
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test Case 1
+>>> text_indentation("This is a simple text. With multiple sentences. And some questions?")
+This is a simple text.
+
+With multiple sentences.
+
+And some questions?
+
+# Test Case 2
+>>> text_indentation("No breaks here. No spaces at the beginning or end.")
+No breaks here.
+
+No spaces at the beginning or end.
+
+# Test Case 3
+>>> text_indentation("One sentence. Another sentence. A third sentence: and a fourth sentence.")
+One sentence.
+
+Another sentence.
+
+A third sentence:
+
+and a fourth sentence.
+
+# Test Case 4
+>>> text_indentation("This text ends with a colon: And this continues.")
+This text ends with a colon:
+
+And this continues.
+
+# Test Case 5
+>>> text_indentation("A single sentence.")
+A single sentence.
+
+# Test Case 6
+>>> text_indentation("")  # Empty string
+
+
+# Test Case 7
+>>> text_indentation(123)  # Not a string
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test Case 8
+>>> text_indentation("Sentence without breaks And spaces at the beginning or end ")
+Sentence without breaks And spaces at the beginning or end
+
