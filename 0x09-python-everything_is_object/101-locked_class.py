@@ -10,6 +10,7 @@ Classes:
 
 """
 
+
 class LockedClass:
     """
     A class with a locked attribute 'first_name' using __slots__.
@@ -20,7 +21,7 @@ class LockedClass:
     Methods:
         - __init__(self, first_name=""): Initializes a
         new instance of LockedClass.
-    
+
     Default value for 'first_name' is an empty string.
     """
     __slots__ = ("first_name",)
