@@ -29,7 +29,7 @@ class MagicClass:
         - radius: The radius of the circle.
     """
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """
         Initializes a MagicClass object with a given radius.
 
@@ -41,7 +41,6 @@ class MagicClass:
         - TypeError: If the provided radius is not
         a number (neither int nor float).
         """
-        self.__radius = 0
 
         if type(radius) is not int and type(radius) is not float:
             raise TypeError("radius must be a number")
