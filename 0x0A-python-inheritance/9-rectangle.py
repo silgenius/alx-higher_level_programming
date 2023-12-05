@@ -38,9 +38,25 @@ class Rectangle(BaseGeometry):
         - TypeError: If either width or height is not a positive integer.
         """
 
-        self.integer_validator(self, width)
+        self.integer_validator("width", width)
         self.__width = width
-        self.integer_validator(self, height)
+        self.integer_validator("height", height)
         self.__height = height
 
+    def area(self):
+        """
+        Calculate and return the area of the rectangle.
 
+        This method calculates and returns the area of the
+        rectangle based on its width and height.
+
+        Returns:
+        - int: The calculated area of the rectangle.
+        """
+        return self.__height * self.__width
+
+    def __str__(self):
+        """
+        Return a string representation of the rectangle.
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
