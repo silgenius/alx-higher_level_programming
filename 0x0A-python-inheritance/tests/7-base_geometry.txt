@@ -61,6 +61,9 @@ The second argument must be an integer
 	>>> bg.integer_validator('Panda', {'Panda': 2})
 	Traceback (most recent call last):
 	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', True)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
 	>>> bg.integer_validator('Panda')
 	Traceback (most recent call last):
 	TypeError: integer_validator() missing 1 required positional argument: 'value'
