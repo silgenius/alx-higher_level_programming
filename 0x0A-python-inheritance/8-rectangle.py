@@ -38,7 +38,7 @@ class Rectangle(BaseGeometry):
         - TypeError: If either width or height is not a positive integer.
         """
 
-        self.integer_validator(self, width)
+        self.integer_validator("width", width)
         self.__width = width
-        self.integer_validator(self, height)
+        self.integer_validator("height", height)
         self.__height = height
