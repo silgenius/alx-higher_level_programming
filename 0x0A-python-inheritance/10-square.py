@@ -12,6 +12,15 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
+    """
+    Class: Square
+
+    Represents a square, inheriting from the Rectangle class.
+
+    Attributes:
+    - __size (int): The size of the square.
+    """
+
     def __init__(self, size):
         """
         Initializes a new square with the given size.
