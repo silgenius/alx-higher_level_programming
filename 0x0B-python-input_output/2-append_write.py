@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
 """
-Module: file_writer_module
+Module: file_writer/appender_module
 
-This module provides a function for writing a string to a text file
+This module provides a function for appending a string to a text file
 (UTF-8) and returning the number of characters written.
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """
     Write the provided string to a text file in UTF-8 encoding
     and return the number of characters written.
@@ -26,5 +26,5 @@ def write_file(filename="", text=""):
     - FileNotFoundError: If the specified file is not found.
     """
 
-    with open(filename, encoding="utf-8", mode="w") as f:
+    with open(filename, encoding="utf-8", mode="a") as f:
         return (f.write(text))
