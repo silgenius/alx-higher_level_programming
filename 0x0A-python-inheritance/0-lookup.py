@@ -7,6 +7,7 @@ This module provides a function for looking up
 and printing the list of attributes and methods of an object.
 """
 
+
 def lookup(obj):
     """
     Prints the list of attributes and methods of the given object.
@@ -16,4 +17,4 @@ def lookup(obj):
     methods are to be looked up.
     """
 
-    print(dir(obj))
+    return dir(obj)
