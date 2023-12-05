@@ -22,4 +22,4 @@ def read_file(filename=""):
     """
     with open(filename, encoding="utf-8") as f:
         file_content = f.read()
-        print(file_content[:-1] if file_content[-1] == '\n' else file_content)
+        print(file_content, end="")
