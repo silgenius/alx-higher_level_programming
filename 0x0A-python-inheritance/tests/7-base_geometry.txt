@@ -1,45 +1,72 @@
-Description: Test cases for BaseGeometry class
+=============================
+Tests for 6-base_geometry.py
+=============================
 
-# Import the BaseGeometry class
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+``class BaseGeometry`` has two methods area() and integer_validator()
 
-# Test Case 1
->>> bg = BaseGeometry()
->>> bg.area()
-Traceback (most recent call last):
-    ...
-Exception: area() is not implemented
+calling area() throws an Exception.
 
-# Test Case 2
->>> bg.integer_validator("width", 10)
+::
 
-# Test Case 3
->>> bg.integer_validator("height", 5)
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+	>>> bg.area(5)
+	Traceback (most recent call last):
+	TypeError: area() takes 1 positional argument but 2 were given
 
-# Test Case 4
->>> bg.integer_validator("side", -3)
-Traceback (most recent call last):
-    ...
-ValueError: side must be greater than 0
+integer_validator() validates its second argument and throws an error if there
+is a problem
 
-# Test Case 5
->>> bg.integer_validator("length", "invalid")
-Traceback (most recent call last):
-    ...
-TypeError: length must be an integer
+::
 
-# Test Case 6
->>> bg.integer_validator("size", 0)
-Traceback (most recent call last):
-    ...
-ValueError: size must be greater than 0
+	>>> bg.integer_validator('Toji', 100)
 
-# Test Case 7
->>> bg.integer_validator("radius", 8)
+If the value is less than 1, an error is thrown
 
-# Test Case 8
->>> bg.integer_validator("dimension", "string")
-Traceback (most recent call last):
-    ...
-TypeError: dimension must be an integer
+::
 
+	>>> bg.integer_validator('Maki', 0)
+	Traceback (most recent call last):
+	ValueError: Maki must be greater than 0
+	>>> bg.integer_validator('Maki', -1)
+	Traceback (most recent call last):
+	ValueError: Maki must be greater than 0
+
+
+The second argument must be an integer
+
+::
+
+	>>> bg.integer_validator('Panda', 2.2)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', None)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', set([1, 2]))
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', True)
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', '2')
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', [1])
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', (1, 2))
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda', {'Panda': 2})
+	Traceback (most recent call last):
+	TypeError: Panda must be an integer
+	>>> bg.integer_validator('Panda')
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
