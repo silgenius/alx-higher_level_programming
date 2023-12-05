@@ -7,6 +7,7 @@ This module provides a function for checking i
 an object inherits from a specified class.
 """
 
+
 def inherits_from(obj, a_class):
     """
     Checks if the given object inherits from the specified class.

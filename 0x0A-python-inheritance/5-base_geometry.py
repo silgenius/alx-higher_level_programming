@@ -6,6 +6,7 @@ Module: geometry
 This module defines a base geometry class for calculating areas.
 """
 
+
 class BaseGeometry:
     """
     Class: BaseGeometry

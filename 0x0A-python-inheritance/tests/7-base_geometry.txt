@@ -1,0 +1,45 @@
+Description: Test cases for BaseGeometry class
+
+# Import the BaseGeometry class
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Test Case 1
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+# Test Case 2
+>>> bg.integer_validator("width", 10)
+
+# Test Case 3
+>>> bg.integer_validator("height", 5)
+
+# Test Case 4
+>>> bg.integer_validator("side", -3)
+Traceback (most recent call last):
+    ...
+ValueError: side must be greater than 0
+
+# Test Case 5
+>>> bg.integer_validator("length", "invalid")
+Traceback (most recent call last):
+    ...
+TypeError: length must be an integer
+
+# Test Case 6
+>>> bg.integer_validator("size", 0)
+Traceback (most recent call last):
+    ...
+ValueError: size must be greater than 0
+
+# Test Case 7
+>>> bg.integer_validator("radius", 8)
+
+# Test Case 8
+>>> bg.integer_validator("dimension", "string")
+Traceback (most recent call last):
+    ...
+TypeError: dimension must be an integer
+

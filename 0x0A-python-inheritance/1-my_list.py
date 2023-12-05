@@ -16,7 +16,8 @@ class MyList(list):
     from the built-in list class.
 
     Methods:
-    - print_sorted(self): Prints the elements of the list in sorted order.
+    - print_sorted(self): Prints the elements of the
+    list in sorted order.
     """
 
     def print_sorted(self):

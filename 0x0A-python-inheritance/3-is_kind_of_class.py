@@ -7,6 +7,7 @@ This module provides a function for checking if an object is
 an instance of a specified class or its subclasses.
 """
 
+
 def is_kind_of_class(obj, a_class):
     """
     Checks if the given object is an instance of the
