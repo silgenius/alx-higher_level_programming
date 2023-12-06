@@ -8,10 +8,13 @@ This script reads input lines from stdin, where each line has the format:
 <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
 """
 
-
 import sys
 
+
 def print_statistics(total_size, status_count):
+    """
+    printf module
+    """
     print(f"File size: {total_size}")
     for code in sorted(status_count):
         count = status_count[code]
@@ -19,6 +22,10 @@ def print_statistics(total_size, status_count):
             print(f"{code}: {count}")
 
 def main():
+    """
+    for the ,ain
+    """
+
     total_size = 0
     status_count = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
