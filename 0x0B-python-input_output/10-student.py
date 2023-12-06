@@ -48,7 +48,7 @@ class Student:
         - dict: A dictionary representing the student instance.
         """
 
-        if attrs:
+        if attrs != None:
             my_dict = {}
             for key, value in self.__dict__.items():
                 if key in attrs:
