@@ -68,9 +68,9 @@ class Student:
         """
 
         for key, value in json.items():
-            if key == first_name:
+            if key == "first_name":
                 self.first_name = value
-            else if key == last_name:
+            elif key == "last_name":
                 self.last_name = value
-            else if key == age:
+            elif key == "age":
                 self.age = value
