@@ -19,8 +19,14 @@ def append_after(filename="", search_string="", new_string=""):
     """
     
     with open(filename"", encoding="utf-8") as f:
-        line = f.read_line()
-        for i in line:
+        
+        while line = f.read_line():
             word = ""
-            if new_string == word:
-                x +== 1
+            for i in line:
+                word += i
+                if new_string == word:
+                    x += 1
+                if i == " " or i == '\n':
+                    word = ""
+            f.write
+
