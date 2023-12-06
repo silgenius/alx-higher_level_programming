@@ -15,18 +15,18 @@ def append_after(filename="", search_string="", new_string=""):
     Parameters:
     - filename (str): The name of the file to be modified.
     - search_string (str): The specific string to search for in each line.
-    - new_string (str): The line of text to be inserted after each line containing the search string.
+    - new_string (str): The line of text to be inserted
+    after each line containing the search string.
     """
-    
-    with open(filename"", encoding="utf-8") as f:
-        
-        while line = f.read_line():
-            word = ""
-            for i in line:
-                word += i
-                if new_string == word:
-                    x += 1
-                if i == " " or i == '\n':
-                    word = ""
-            f.write
 
+    with open(filename, "r", encoding="utf-8") as myFile, \
+         open("tmp.txt", "w", encoding="utf-8") as tmpFile:
+        for line in myFile:
+            tmpFile.write(line)
+            if search_string in line:
+                tmpFile.write(new_string)
+
+    with open(filename, "w", encoding="utf-8") as myFile, \
+         open("tmp.txt", "r", encoding="utf-8") as tmpFile:
+        for line in tmpFile:
+            myFile.write(line)
