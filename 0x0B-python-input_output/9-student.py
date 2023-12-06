@@ -47,4 +47,4 @@ class Student:
         Returns:
         - dict: A dictionary representing the student instance.
         """
-        return obj.__dict__
+        return self.__dict__
