@@ -40,5 +40,3 @@ except KeyboardInterrupt:
         count = status_count[code]
         if count > 0:
             print(f"{code}: {count}")
-
-
