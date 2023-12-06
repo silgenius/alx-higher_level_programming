@@ -1,44 +1,44 @@
 #!/usr/bin/python3
+
 """
-A script that collects data about requests
-and prints them at specified intervals.
+stats_script.py - Script to compute metrics from input lines
+and print statistics.
+
+This script reads input lines from stdin, where each line has the format:
+<IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
 """
+
 import sys
 
-file_size = 0
-status_codes = {'200': 0, '301': 0, '400': 0,
-                '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
-cnt = 0
-
-
-def print_stats(stat_codes_obj, f_size):
-    """Prints the stats about the status codes. """
-    print("File size: {:d}".format(f_size))
-    for i, j in stat_codes_obj.items():
-        if j > 0:
-            print("{:s}: {:d}".format(i, j))
-
+total_size = 0
+status_count = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
 try:
-    for line in sys.stdin:
-        cnt += 1
-        line_list = line.split()
-
+    for line_number, line in enumerate(sys.stdin, start=1):
         try:
-            file_size += int(line_list[-1])
-        except (IndexError, ValueError):
-            pass
+            parts = line.split()
+            file_size = int(parts[-1])
+            status_code = int(parts[-2])
+        except (ValueError, IndexError):
+            # Skip invalid lines
+            continue
 
-        try:
-            code = line_list[-2]
-            if code in status_codes:
-                status_codes[code] += 1
-        except IndexError:
-            pass
+        total_size += file_size
+        status_count[status_code] += 1
 
-        if cnt % 10 == 0:
-            print_stats(status_codes, file_size)
+        if line_number % 10 == 0:
+            print(f"File size: {total_size}")
+            for code in sorted(status_count):
+                count = status_count[code]
+                if count > 0:
+                    print(f"{code}: {count}")
 
-except KeyboardInterrupt as e:
-    print_stats(status_codes, file_size)
-    raise
+except KeyboardInterrupt:
+    # Handle KeyboardInterrupt (Ctrl+C)
+    print(f"File size: {total_size}")
+    for code in sorted(status_count):
+        count = status_count[code]
+        if count > 0:
+            print(f"{code}: {count}")
+
+
