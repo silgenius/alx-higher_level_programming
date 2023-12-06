@@ -1,4 +1,12 @@
 #!/usr/bin/python3
+
+"""
+Module: add_item_module
+
+This module provides a script for adding command-line
+arguments to a Python list and saving them to a file in JSON format.
+"""
+
 from sys import argv
 
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
