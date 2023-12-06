@@ -10,7 +10,8 @@ into a file after each line containing a specific string.
 
 def append_after(filename="", search_string="", new_string=""):
     """
-    Insert a line of text into a file after each line containing a specific string.
+    Insert a line of text into a file after each line
+    containing a specific string.
 
     Parameters:
     - filename (str): The name of the file to be modified.
