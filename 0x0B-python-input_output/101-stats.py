@@ -12,11 +12,11 @@ import sys
 
 
 def print_statistics(total_size, status_dict={}):
-    print("File size: {}".format(total_size))
+    print("File size: {:d}".format(total_size))
     for code in sorted(status_dict):
         count = status_dict[code]
         if count > 0:
-            print(f"{code}: {count}")
+            print("{:d}: {:d}".format(code, count))
 
 
 my_dict = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
@@ -40,3 +40,4 @@ try:
 
 except KeyboardInterrupt:
     print_statistics(total_size, my_dict)
+    sys.exit(0)
