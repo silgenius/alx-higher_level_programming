@@ -68,5 +68,8 @@ class Base:
               Uses the static method to_json_string for JSON serialization.
         """
         filename = cls.__name__ + ".json"
+        if list_objs is None:
+            list_objs = []
+
         with open(filename, mode="w", encoding="utf-8") as f:
             f.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
