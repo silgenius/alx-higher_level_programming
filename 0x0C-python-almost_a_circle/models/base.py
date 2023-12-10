@@ -54,6 +54,19 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """
+        Class method that writes the JSON string representatio
+        of list_objs to a file.
+
+        Parameters:
+        - cls (type): The class itself.
+        - list_objs (list): A list of instances that inherit from Base.
+
+        Note: If list_objs is None, an empty list is saved.
+              The filename is constructed as "<Class name>.json",
+              for example, "Rectangle.json".
+              Uses the static method to_json_string for JSON serialization.
+        """
         filename = cls.__name__ + ".json"
         with open(filename, mode="w", encoding="utf-8") as f:
             f.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
