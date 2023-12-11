@@ -7,6 +7,7 @@ This module defines a Base class with an __init__ method
 for managing object IDs.
 """
 
+import csv
 import json
 
 
@@ -92,3 +93,81 @@ class Base:
         if json_string and json_string is not None:
             return json.loads(json_string)
         return []
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Class method that returns an instance with all attributes already set.
+
+        Parameters:
+        - cls (type): The class itself.
+        - **dictionary (dict): A dictionary containing attribute values.
+
+        Returns:
+        - instance: An instance of the class with attributes set
+        """
+        dummy = cls.__new__(cls)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, mode="r", encoding="utf-8") as f:
+                file_content = f.read()
+                instance_list = []
+                for item in cls.from_json_string(file_content):
+                    item = cls.create(**item)
+                    instance_list.append(item)
+            return instance_list
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Class method to save a list of objects to a CSV file.
+
+        For Rectangle class:
+        - Fieldnames: ['id', 'width', 'height', 'x', 'y']
+
+        For Square class:
+        - Fieldnames: ['id', 'size', 'x', 'y']
+        """
+
+        if list_objs is None:
+            list_objs = []
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w", newline="") as f:
+            if cls.__name__ == "Rectangle":
+                fieldnames = ['id', 'width', 'height', 'x', 'y']
+            else:
+                fieldnames = ['id', 'size', 'x', 'y']
+            data = [item.to_dictionary() for item in list_objs]
+            csv_writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+            csv_writer.writeheader()
+            csv_writer.writerows(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Class method to load instances from a CSV file.
+
+        Returns:
+        - list: A list of instances loaded from the CSV file.
+        """
+
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode="r", newline="") as f:
+                instance_list = []
+                csv_reader = csv.DictReader(f)
+                for row in csv_reader:
+                    row = cls.create(**row)
+                    instance_list.append(row)
+            return instance_list
+        except FileNotFoundError:
+            return []

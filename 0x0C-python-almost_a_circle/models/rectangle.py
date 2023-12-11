@@ -170,8 +170,7 @@ class Rectangle(Base):
         Returns a string representation of the Rectangle instance.
         """
 
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
- self.__x, self.__y, self.__width, self.__height))
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height))
 
     def update(self, *args, **kwargs):
         """
@@ -195,18 +194,7 @@ class Rectangle(Base):
                 self.y = args[4]
         else:
             for key, value in kwargs.items():
-                if key == "id":
-                    super().__init__(value)
-                elif key == "height":
-                    self.height = value
-                elif key == "width":
-                    self.width = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value
-                else:
-                    pass
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """
