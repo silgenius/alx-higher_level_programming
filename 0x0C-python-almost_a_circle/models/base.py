@@ -127,25 +127,24 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """
-        Class method to save a list of objects to a CSV file.
+        Class method to serialize instances to a CSV file.
 
-        For Rectangle class:
-        - Fieldnames: ['id', 'width', 'height', 'x', 'y']
+        Parameters:
+        - list_objs (list): A list of instances to be serialized.
 
-        For Square class:
-        - Fieldnames: ['id', 'size', 'x', 'y']
+        The method writes the serialized data to a CSV file named
+        <Class name>.csv using the csv.DictWriter class.
         """
-
-        if list_objs is None:
-            list_objs = []
-
         filename = cls.__name__ + ".csv"
         with open(filename, mode="w", newline="") as f:
             if cls.__name__ == "Rectangle":
                 fieldnames = ['id', 'width', 'height', 'x', 'y']
-            else:
+            elif cls.__name__ == "Square":
                 fieldnames = ['id', 'size', 'x', 'y']
-            data = [item.to_dictionary() for item in list_objs]
+            else:
+                raise ValueError(f"Unsupported class: {cls.__name__}")
+
+            data = [obj.to_dictionary() for obj in list_objs]
             csv_writer = csv.DictWriter(f, fieldnames=fieldnames)
 
             csv_writer.writeheader()
@@ -154,12 +153,15 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """
-        Class method to load instances from a CSV file.
+        Class method to deserialize instances from a CSV file.
 
         Returns:
-        - list: A list of instances loaded from the CSV file.
-        """
+        - list: A list of instances deserialized from the CSV file.
 
+        The method reads a CSV file named <Class name>.csv and creates instances
+        of the class using the create() method with the data from the file.
+        If the file is not found, an empty list is returned.
+        """
         filename = cls.__name__ + ".csv"
         try:
             with open(filename, mode="r", newline="") as f:
