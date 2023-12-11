@@ -1,21 +1,20 @@
 #!/usr/bin/python3
 
-from models.rectangle import Rectangle
-
 """
     Class: Square
 
     Represents a square, inheriting from the Rectangle class.
 
     Attributes:
-    - __width (int): The width of the square (inherited from Rectangle).
-    - __height (int): The height of the square (inherited from Rectangle).
+    - __size (int): The width/height of the square (inherited from Rectangle)
     - __x (int): The x-coordinate of the top-left corner of the square (inherited from Rectangle).
     - __y (int): The y-coordinate of the top-left corner of the square (inherited from Rectangle).
     - id (int): An identifier for the square (inherited from Rectangle).
 
     Methods:
 """
+
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
