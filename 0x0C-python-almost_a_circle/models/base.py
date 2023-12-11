@@ -49,7 +49,7 @@ class Base:
         If list_dictionaries is None or empty, returns "[]".
         """
 
-        if list_dictionaries and list_dictionaries is not None:
+        if len(list_dictionaries) != 0 and list_dictionaries is not None:
             return json.dumps(list_dictionaries)
         return "[]"
 
