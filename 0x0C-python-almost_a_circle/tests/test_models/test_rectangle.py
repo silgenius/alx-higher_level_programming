@@ -44,7 +44,7 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             obj.y = -1
 
-    def test_with_no_XorY(self):
+    def test_default_coordinates(self):
         obj = Rectangle(2, 3)
         self.assertEqual(obj.x, 0)
         self.assertEqual(obj.y, 0)
