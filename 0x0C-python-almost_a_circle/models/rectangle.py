@@ -1,7 +1,20 @@
 #!/usr/bin/python3
 
-from models.base import Base
+"""
+    Class: Rectangle
 
+    Represents a rectangle with width, height, x, and y
+    attributes, inheriting from the Base class.
+
+    Attributes:
+    - __width (int): The width of the rectangle.
+    - __height (int): The height of the rectangle.
+    - __x (int): The x-coordinate of the top-left corner of the rectangle.
+    - __y (int): The y-coordinate of the top-left corner of the rectangle.
+    - id (int): An identifier for the rectangle.
+"""
+
+from models.base import Base
 
 class Rectangle(Base):
     """
