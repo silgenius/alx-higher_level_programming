@@ -109,7 +109,8 @@ class Base:
         - instance: An instance of the class with attributes set
         """
         dummy = cls(1, 1)
-        dummy.update(**dictionary)
+        if dummy is not None:
+            dummy.update(**dictionary)
         return dummy
 
     @classmethod
