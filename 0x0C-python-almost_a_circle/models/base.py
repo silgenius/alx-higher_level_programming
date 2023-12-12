@@ -28,7 +28,6 @@ class Base:
         Parameters:
         - id (int): An optional ID for the object.
         """
-
         if id is not None:
             self.id = id
         else:
@@ -106,7 +105,7 @@ class Base:
         Returns:
         - instance: An instance of the class with attributes set
         """
-        dummy = cls.__new__(cls)
+        dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
