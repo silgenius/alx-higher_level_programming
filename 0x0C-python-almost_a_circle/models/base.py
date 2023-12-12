@@ -49,7 +49,7 @@ class Base:
         If list_dictionaries is None or empty, returns "[]".
         """
 
-        if len(list_dictionaries) != 0 and list_dictionaries is not None:
+        if list_dictionaries and list_dictionaries is not None:
             return json.dumps(list_dictionaries)
         return "[]"
 
@@ -173,3 +173,41 @@ class Base:
             return instance_list
         except FileNotFoundError:
             return []
+
+
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+        screen.bgcolor("white")
+
+        # Function to draw a rectangle
+        def draw_rectangle(rectangle):
+            turtle.penup()
+            turtle.goto(rectangle.width / 2, rectangle.height / 2)
+            turtle.pendown()
+            for _ in range(4):
+                turtle.forward(rectangle.width)
+                turtle.right(90)
+
+        # Function to draw a square
+        def draw_square(square):
+            turtle.penup()
+            turtle.goto(square.width / 2, square.height / 2)
+            turtle.pendown()
+            for _ in range(4):
+                turtle.forward(square.width)
+                turtle.right(90)
+
+        # Draw rectangles
+        turtle.color("blue")
+        for rectangle in list_rectangles:
+            draw_rectangle(rectangle)
+
+        # Draw squares
+        turtle.color("red")
+        for square in list_squares:
+            draw_square(square)
+
+        turtle.done()
