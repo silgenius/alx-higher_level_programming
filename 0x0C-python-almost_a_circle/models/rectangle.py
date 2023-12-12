@@ -16,6 +16,7 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """
     Class: Rectangle
@@ -185,7 +186,16 @@ class Rectangle(Base):
         Returns a string representation of the Rectangle instance.
         """
 
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height))
+        return (
+                "[Rectangle] ({}) {}/{} - {}/{}"
+                .format(
+                    self.id,
+                    self.__x,
+                    self.__y,
+                    self.__width,
+                    self.__height
+                    )
+                )
 
     def update(self, *args, **kwargs):
         """

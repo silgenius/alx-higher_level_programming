@@ -33,8 +33,9 @@ class Square(Rectangle):
           "[Square] (<id>) <x>/<y> - <size>".
         """
 
-        return("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width))
-    
+        return ("[Square] ({}) {}/{} - {}"
+                .format(self.id, self.x, self.y, self.width))
+
     @property
     def size(self):
         """

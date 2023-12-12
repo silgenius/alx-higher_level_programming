@@ -72,7 +72,10 @@ class Base:
             list_objs = []
 
         with open(filename, mode="w", encoding="utf-8") as f:
-            f.write(cls.to_json_string([obj.to_dictionary() for obj in list_objs]))
+            f.write(
+                    cls.to_json_string([obj.to_dictionary()
+                                        for obj in list_objs])
+                    )
 
     @staticmethod
     def from_json_string(json_string):
@@ -157,7 +160,8 @@ class Base:
         Returns:
         - list: A list of instances deserialized from the CSV file.
 
-        The method reads a CSV file named <Class name>.csv and creates instances
+        The method reads a CSV file named <Class name>.csv and
+        creates instances
         of the class using the create() method with the data from the file.
         If the file is not found, an empty list is returned.
         """
@@ -172,8 +176,6 @@ class Base:
             return instance_list
         except FileNotFoundError:
             return []
-
-
 
     @staticmethod
     def draw(list_rectangles, list_squares):

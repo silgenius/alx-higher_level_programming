@@ -12,16 +12,24 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(obj.y, 6)
 
     def test_initialization_with_other_DataType(self):
-        self.assertRaises(TypeError, Rectangle, "Bird", 2, 4, 5)
-        self.assertRaises(TypeError, Rectangle, 2, (1, 3), 3, 5)
-        self.assertRaises(TypeError, Rectangle, 2, 2, {"key": 1}, 5)
-        self.assertRaises(TypeError, Rectangle, 2, 3, 8, "y")
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            Rectangle("Bird", 2, 4, 5)
+        with self.assertRaises(TypeError, msg="height must be an integer"):
+            Rectangle(2, (1, 3), 3, 5)
+        with self.assertRaises(TypeError, msg="x must be an integer"):
+            Rectangle(2, 2, {"key": 1}, 5)
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            Rectangle(2, 3, 8, "y")
 
     def test_initialization_with_wrong_input(self):
-        self.assertRaises(ValueError, Rectangle, 0, 7, 6, 5)
-        self.assertRaises(ValueError, Rectangle, 2, 0, 8, 7)
-        self.assertRaises(ValueError, Rectangle, 0, 7, -8, 5)
-        self.assertRaises(ValueError, Rectangle, 2, 0, 8, -1)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            Rectangle(0, 7, 6, 5)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            Rectangle(2, 0, 8, 7)
+        with self.assertRaises(ValueError, msg="x must be >= 0"):
+            Rectangle(0, 7, -8, 5)
+        with self.assertRaises(ValueError, msg="y must be >= 0"):
+            Rectangle(2, 0, 8, -1)
 
     def test_setters_validation(self):
         obj = Rectangle(2, 3, 4, 6)
