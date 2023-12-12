@@ -165,15 +165,19 @@ class Base:
         of the class using the create() method with the data from the file.
         If the file is not found, an empty list is returned.
         """
+
+        rectangles = []
         filename = cls.__name__ + ".csv"
         try:
             with open(filename, mode="r", newline="") as f:
-                instance_list = []
-                csv_reader = csv.DictReader(f)
-                for row in csv_reader:
-                    row = cls.create(**row)
-                    instance_list.append(row)
-            return instance_list
+                reader = csv.DictReader(f)
+
+                for row in reader:
+                    for key in row.keys():
+                        row[key] = int(row[key])
+                    rectangle = cls.create(**row)
+                    rectangles.append(rectangle)
+            return rectangles
         except FileNotFoundError:
             return []
 
