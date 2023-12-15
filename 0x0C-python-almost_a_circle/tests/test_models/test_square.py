@@ -88,7 +88,7 @@ class TestSquareToDictionaryMethod(unittest.TestCase):
     def test_to_dictionary_method_with_default_values(self):
         # Test to_dictionary method with default values
         square = Square(5)
-        expected_dict = {'id': 8, 'size': 5, 'x': 0, 'y': 0}
+        expected_dict = {'id': 10, 'size': 5, 'x': 0, 'y': 0}
 
         self.assertEqual(square.to_dictionary(), expected_dict)
 

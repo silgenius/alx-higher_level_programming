@@ -54,6 +54,25 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             obj.y = -1
 
+    def test_with_incomplete_arg(self):
+        # Test cases for incomplete argument
+        self.assertRaises(ValueError, Rectangle, 1, -2)
+        self.assertRaises(ValueError, Rectangle, -1, 2)
+        
+        obj = Rectangle(1, 2, 3)
+        self.assertEqual(obj.width, 1)
+        self.assertEqual(obj.height, 2)
+        self.assertEqual(obj.x, 3)
+        self.assertEqual(obj.y, 0)
+        self.assertEqual(obj.id, 13)
+
+        obj = Rectangle(1, 2)
+        self.assertEqual(obj.width, 1)
+        self.assertEqual(obj.height, 2)
+        self.assertEqual(obj.x, 0)
+        self.assertEqual(obj.y, 0)
+        self.assertEqual(obj.id, 14)
+
     def test_default_coordinates(self):
         obj = Rectangle(2, 3)
         self.assertEqual(obj.x, 0)
@@ -216,6 +235,6 @@ class TestRectangleToDictionaryMethod(unittest.TestCase):
     def test_to_dictionary_method_with_default_values(self):
         # Test to_dictionary method with default values
         rectangle = Rectangle(3, 3)
-        expected_dict = {'id': 16, 'width': 3, 'height': 3, 'x': 0, 'y': 0}
+        expected_dict = {'id': 20, 'width': 3, 'height': 3, 'x': 0, 'y': 0}
 
         self.assertEqual(rectangle.to_dictionary(), expected_dict)
