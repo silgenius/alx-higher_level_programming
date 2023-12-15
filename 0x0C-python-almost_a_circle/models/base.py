@@ -108,7 +108,11 @@ class Base:
         Returns:
         - instance: An instance of the class with attributes set
         """
-        dummy = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = cls(1, 1)
+
         if dummy is not None:
             dummy.update(**dictionary)
         return dummy
