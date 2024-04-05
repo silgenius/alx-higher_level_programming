@@ -20,4 +20,4 @@ class Square:
         Parameters:
             - size: The size of each side of the square.
         """
-    self.__size = size
+        self.__size = size
