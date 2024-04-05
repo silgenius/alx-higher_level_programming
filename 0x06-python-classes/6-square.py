@@ -109,7 +109,7 @@ class Square:
             return
 
         for i in range(self.__position[1]):
-            if self.position[i] == 0:
+            if i == 0:
                 break
             print()
 
