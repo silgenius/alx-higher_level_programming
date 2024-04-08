@@ -1,4 +1,4 @@
-# ALX Higher Level Programming
+LX Higher Level Programming
 
 This repository contains projects and exercises completed as part of the ALX Higher Level Programming curriculum.
 
@@ -85,4 +85,5 @@ To get started with these projects, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/silgenius/alx-higher_level_programming.git
+
 
