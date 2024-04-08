@@ -1,4 +1,4 @@
-LX Higher Level Programming
+ALX Higher Level Programming
 
 This repository contains projects and exercises completed as part of the ALX Higher Level Programming curriculum.
 
