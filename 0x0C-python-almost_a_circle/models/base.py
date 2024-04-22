@@ -48,9 +48,7 @@ class Base:
         If list_dictionaries is None or empty, returns "[]".
         """
 
-        if list_dictionaries or list_dictionaries is not None:
-            return json.dumps(list_dictionaries)
-        return "[]"
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
