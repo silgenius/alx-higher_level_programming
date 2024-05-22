@@ -1,7 +1,7 @@
 -- A script that displays the top 3 cities by temperature during July and August, ordered by temperature (descending)
 SELECT city, AVG(value) AS avg_temp
 FROM temperatures
-WHERE month IN ('July', 'August')
+WHERE BETWEEN 7 AND 8
 GROUP BY city
 ORDER BY avg_temp DESC
-LIMIT 4;
+LIMIT 3;
