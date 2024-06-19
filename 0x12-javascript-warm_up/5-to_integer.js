@@ -5,7 +5,7 @@
 const n = Number(process.argv[2]);
 if (n) {
   Math.floor(n);
-  console.log('My number: ', n);
+  console.log('My number:', n);
 } else {
   console.log('Not a number');
 }
