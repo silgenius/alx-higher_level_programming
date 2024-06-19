@@ -34,7 +34,7 @@ By the end of this project, you should be able to:
 - **12-object.js**: Script to replace the value 12 with 89.
 - **13-add.js**: Function that returns the addition of 2 integers.
 
-##Author 
+## Author 
 
 - [Martin Olutade](https://github.com/silgenius)
 
