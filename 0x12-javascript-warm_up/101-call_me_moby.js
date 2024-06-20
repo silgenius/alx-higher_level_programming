@@ -1,10 +1,10 @@
 #!/usr/bin/node
-// a function that executes x times a function
+// a function that executes x times a function.
 
-function (x, theFunction) {
-	while (x < 0)
-	{
-		theFunction;
-		x--;
-	}
+function executeFunc(x, theFunction) {
+    for (let i = 0; i < x; i++) {
+        theFunction();
+    }
 }
+
+module.exports = executeFunc;
