@@ -26,3 +26,5 @@ if __name__ == "__main__":
         print(f'{state[0]}: {state[1]}')
     else:
         print("Nothing")
+
+    session.close()

@@ -24,3 +24,5 @@ if __name__ == "__main__":
 
     for state_id, state_name in states:
         print(f'{state_id}: {state_name}')
+
+    session.close()
