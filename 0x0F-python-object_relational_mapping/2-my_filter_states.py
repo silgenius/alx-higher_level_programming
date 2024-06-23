@@ -8,7 +8,8 @@ the database username, the database password, the database name,
 and the state name to search for.
 
 The script connects to a MySQL server running on localhost at port 3306.
-Results are sorted in ascending order by states.id and displayed as they are retrieved.
+Results are sorted in ascending order by states.id and
+displayed as they are retrieved.
 
 Usage:
     ./script.py <db_username> <db_passwd> <db_name> <state_name>
@@ -33,12 +34,13 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    format = "SELECT id, name FROM states WHERE name=%s"
-    cur.execute(format, (state_name,))
+    format = "SELECT id, name FROM states"
+    cur.execute(format)
     rows = cur.fetchall()
 
     for row in rows:
-        print(row)
+        if row[1] == state_name:
+            print(row)
 
     cur.close()
     db.close()
