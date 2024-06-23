@@ -8,8 +8,7 @@ the database username, the database password, the database name,
 and the state name to search for.
 
 The script connects to a MySQL server running on localhost at port 3306.
-Results are sorted in ascending order by states.id and
-displayed as they are retrieved.
+Results are sorted in ascending order by states.id and displayed as they are retrieved.
 
 Usage:
     ./script.py <db_username> <db_passwd> <db_name> <state_name>
