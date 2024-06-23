@@ -7,7 +7,8 @@ It requires three command-line arguments: the database username, the database
 password, and the database name.
 
 The script connects to a MySQL server running on localhost at port 3306.
-Results are sorted in ascending order by states.id and displayed as they are retrieved.
+Results are sorted in ascending order by states.id and displayed as
+they are retrieved.
 
 Usage:
     ./script.py <db_username> <db_passwd> <db_name>
