@@ -32,13 +32,12 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    query = "SELECT id, name FROM states"
-    cur.execute(query)
+    query = "SELECT id, name FROM states WHERE name=%s"
+    cur.execute(query, (arg,))
     rows = cur.fetchall()
 
     for row in rows:
-        if row[1] == arg:
-            print(row)
+        print(row)
 
     cur.close()
     db.close()
