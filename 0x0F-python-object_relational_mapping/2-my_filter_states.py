@@ -23,7 +23,7 @@ if __name__ == "__main__":
     db_username = sys.argv[1]
     db_passwd = sys.argv[2]
     db_name = sys.argv[3]
-    arg = sys.argv[4]
+    state_name = sys.argv[4]
 
     db = MySQLdb.connect(
             host="localhost",
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     cur = db.cursor()
     query = "SELECT id, name FROM states WHERE name=%s"
-    cur.execute(query, (arg,))
+    cur.execute(query, (state_name,))
     rows = cur.fetchall()
 
     for row in rows:
