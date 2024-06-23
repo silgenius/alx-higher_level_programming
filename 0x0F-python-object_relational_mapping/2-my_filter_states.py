@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This script connects to a MySQL database and retrieves and prints all rows
 from the `states` table in the hbtn_0e_0_usa database where the state name
@@ -13,6 +14,7 @@ displayed as they are retrieved.
 Usage:
     ./script.py <db_username> <db_passwd> <db_name> <state_name>
 """
+
 if __name__ == "__main__":
 
     import sys
