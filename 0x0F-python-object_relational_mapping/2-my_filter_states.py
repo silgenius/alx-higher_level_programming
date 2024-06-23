@@ -33,8 +33,8 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    query = "SELECT id, name FROM states WHERE name=%s"
-    cur.execute(query, (state_name,))
+    format = "SELECT id, name FROM states WHERE name=%s"
+    cur.execute(format, (state_name,))
     rows = cur.fetchall()
 
     for row in rows:
