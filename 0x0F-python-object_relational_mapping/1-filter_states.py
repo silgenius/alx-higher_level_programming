@@ -32,7 +32,7 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    query = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    query = "SELECT id, name FROM states WHERE name LIKE 'N%'"
     cur.execute(query)
     rows = cur.fetchall()
     for row in rows:
