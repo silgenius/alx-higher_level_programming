@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """contains the class definition of a State and an instance Base"""
 
+from relationship_state import Base, Statefrom relationship_city import City
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import sys
+
 if __name__ == "__main__":
-    from relationship_state import Base, State
-    from relationship_city import City
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import sessionmaker
-    import sys
 
     username = sys.argv[1]
     password = sys.argv[2]
