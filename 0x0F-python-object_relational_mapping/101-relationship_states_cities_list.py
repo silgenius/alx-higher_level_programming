@@ -21,11 +21,9 @@ if __name__ == '__main__':
     engine = create_engine(db_url, pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).all()
-    for state in states:
+    for state in session.query(State).all():
         print(f'{state.id}: {state.name}')
-        cities = session.query(City).filter(City.state_id == state.id).all()
-        for city in cities:
+        for city in state.cities:
             print(f'\t{city.id}: {city.name}')
 
     session.close()
