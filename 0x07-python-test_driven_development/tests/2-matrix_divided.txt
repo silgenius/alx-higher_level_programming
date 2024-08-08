@@ -1,0 +1,70 @@
+# Test cases for matrix_divided function
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Test Case 1
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+# Test Case 2
+>>> matrix = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+>>> div = 10
+>>> matrix_divided(matrix, div)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]]
+
+# Test Case 3
+>>> matrix = [[1.5, 2.5, 3.5], [4.5, 5.5, 6.5], [7.5, 8.5, 9.5]]
+>>> div = 1.5
+>>> matrix_divided(matrix, div)
+[[1.0, 1.67, 2.33], [3.0, 3.67, 4.33], [5.0, 5.67, 6.33]]
+
+# Test Case 4
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 0  # division by zero
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+# Test Case 5
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+# Test Case 6
+>>> matrix = [[1, 2, 3], [4, 5, 6], 'invalid']
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 7
+>>> matrix = [[1, 2, 3], [4, 'invalid', 6], [7, 8, 9]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 8
+>>> matrix = 'invalid'
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 9
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 'invalid'
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+python3 -m py_compile $PYFILE
+echo Compiling $PYFILE ...
+cd __pycache__
+mv ./* $PYFILE\c
+mv $PYFILE\c ..
+cd ..
+export PYFILEc=$PYFILE\c
+rm -r __pycache__
